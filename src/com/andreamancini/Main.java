@@ -19,10 +19,11 @@ public class Main {
 
         p.lprint(st);
 
-        p.lprint(sj);
+        p.lprint(sj, "device to play");
 
         Gui g = new Gui(appname, height, width);
 
+        g.build(sj);
 
 
 

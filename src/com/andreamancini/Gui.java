@@ -9,13 +9,15 @@ class Gui {
     private int width;
     private int height;
 
+
+
     Gui(String ap, int l, int h){
         appn = ap;
         width = l;
         height = h;
 
 
-        makeFrame(makeMenu());
+
 
     }
 
@@ -35,7 +37,7 @@ class Gui {
 
     }
 
-    private JMenuBar makeMenu(){
+    private JMenuBar makeMenu(String[] dev){
 
         JMenuBar menuBar;
         JMenu menu;
@@ -50,26 +52,32 @@ class Gui {
                 "Select your Joystick");
         menuBar.add(menu);
 
-        makeItMen(menu);
+        makeItMen(menu, dev);
 
         return menuBar;
 
     }
 
 
-    private void makeItMen(JMenu menu) {
+    private void makeItMen(JMenu menu, String[] dev) {
 
         JMenuItem menuItem;
 
-        menuItem = new JMenuItem("A text-only menu item",
-                KeyEvent.VK_J);
+        for(String string : dev) {
 
-        menuItem.getAccessibleContext().setAccessibleDescription(
-                "Is this your Joystick?");
-        menu.add(menuItem);
+            menuItem = new JMenuItem(string, KeyEvent.VK_J);
+
+            menuItem.getAccessibleContext().setAccessibleDescription(
+                    "Is this your Joystick?");
+            menu.add(menuItem);
+        }
 
 
 
+    }
+
+    void build(String[] dev){
+        makeFrame(makeMenu(dev));
     }
 
 

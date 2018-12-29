@@ -39,20 +39,23 @@ class Pad {
 
         }
 
-        return st;
+        return Arrays.stream(st).filter(Objects::nonNull).toArray(String[]::new);
+
+
     }
 
     String[] listJoy(String[][] st){
         
 
 
-        String[] list = new String[st.length];
+        String[][] list = st.clone();
 
-        for (int i = 0; i < st.length; i++){
+        for (int i = 0; i < list.length; i++){
 
-            if(st[i][1].equals(Controller.Type.STICK.toString())) {
+            if(!st[i][1].equals(Controller.Type.STICK.toString())) {
 
-                list[i] = st[i][1];
+                list[i][0] = null;
+                list[i][1] = null;
 
             }
 
@@ -64,21 +67,33 @@ class Pad {
 
     void lprint(String[][] st){
 
+        System.out.println("-----------------");
+        System.out.println(" ");
+
         for (String[] strings : st) {
 
-            System.out.println(strings[0] + " | " + strings[1]);
+           System.out.println(strings[0] + " | " + strings[1]);
 
         }
+
+        System.out.println("-----------------");
+        System.out.println(" ");
 
     }
 
-    void lprint(String[] st){
+    void lprint(String[] st, String dev){
+
+        System.out.println("-----------------");
+        System.out.println(" ");
 
         for (String s : st) {
 
-            System.out.println(s);
+            System.out.println(dev + " is: " + s);
 
         }
+
+        System.out.println("-----------------");
+        System.out.println(" ");
 
     }
 
