@@ -1,12 +1,18 @@
 package com.andreamancini;
-import javax.swing.*;
+
+
 
 public class Main {
+
+    private static String appname = "Centry";
+    private static int height = 400;
+    private static int width = 400;
+
+
     public static void main(String[] args) {
 
-        Gui g = new Gui();
+        Gui g = new Gui(appname, height, width);
 
-        g.makeFrame();
 
         Pad p = new Pad();
 

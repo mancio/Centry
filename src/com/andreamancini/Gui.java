@@ -1,27 +1,60 @@
 package com.andreamancini;
 
 import javax.swing.*;
+import java.awt.event.KeyEvent;
 
 class Gui {
 
-    Gui(){
+    private String appn;
+    private int width;
+    private int height;
+
+    Gui(String ap, int l, int h){
+        appn = ap;
+        width = l;
+        height = h;
+
+
+        makeFrame(makeMenu());
 
     }
 
-    void makeFrame(){
-        JFrame f= new JFrame();//creating instance of JFrame
 
 
+    private void makeFrame(JMenuBar men){
 
-        JButton b= new JButton("click");//creating instance of JButton
+        JFrame f= new JFrame(appn);//creating instance of JFrame
 
+        f.setSize(width,height);
 
-        b.setBounds(130,100,100, 40);//x axis, y axis, width, height
-        f.add(b);//adding button in JFrame
-
-        f.setSize(400,500);//400 width and 500 height
         f.setLayout(null);//using no layout managers
         f.setVisible(true);//making the frame visible
+
+        f.setJMenuBar(men);
+
+
     }
+
+    private JMenuBar makeMenu(){
+
+        JMenuBar menuBar;
+        JMenu menu;
+
+        //Create the menu bar.
+        menuBar = new JMenuBar();
+
+        //Build the first menu.
+        menu = new JMenu("Devices");
+        menu.setMnemonic(KeyEvent.VK_D);
+        menu.getAccessibleContext().setAccessibleDescription(
+                "Select your Joystick");
+        menuBar.add(menu);
+
+        return menuBar;
+
+    }
+
+
+
 
 }
