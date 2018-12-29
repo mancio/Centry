@@ -18,7 +18,16 @@ public class Main {
 
         Pad p = new Pad();
 
-        p.list();
+        String[][] st = p.listAll();
+
+        String[] sj = p.listJoy(st);
+
+        p.lprint(st);
+
+        p.lprint(sj);
+
+
+
 
     }
 }
