@@ -50,11 +50,27 @@ class Gui {
                 "Select your Joystick");
         menuBar.add(menu);
 
+        makeItMen(menu);
+
         return menuBar;
 
     }
 
 
+    private void makeItMen(JMenu menu) {
+
+        JMenuItem menuItem;
+
+        menuItem = new JMenuItem("A text-only menu item",
+                KeyEvent.VK_J);
+
+        menuItem.getAccessibleContext().setAccessibleDescription(
+                "Is this your Joystick?");
+        menu.add(menuItem);
+
+
+
+    }
 
 
 }

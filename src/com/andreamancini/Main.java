@@ -11,9 +11,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Gui g = new Gui(appname, height, width);
-
-
         Pad p = new Pad();
 
         String[][] st = p.listAll();
@@ -23,6 +20,8 @@ public class Main {
         p.lprint(st);
 
         p.lprint(sj);
+
+        Gui g = new Gui(appname, height, width);
 
 
 
