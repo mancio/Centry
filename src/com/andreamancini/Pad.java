@@ -115,11 +115,15 @@ class Pad {
 
             valAx[1] = ca[devnum - 1].getComponent(Component.Identifier.Axis.Y).getPollData();
 
+        }else{
+            valAx[1] = -2;
         }
 
         if(ca[devnum-1].getComponent(Component.Identifier.Axis.Z) != null) {
 
             valAx[2] = ca[devnum - 1].getComponent(Component.Identifier.Axis.Z).getPollData();
+        }else {
+            valAx[2] = -2;
         }
 
 
@@ -164,7 +168,7 @@ class Pad {
 
     void lprint(float[] val){
 
-        if(val == null) {
+        if(val < -1.0 && val > 1.0) {
 
             System.out.println("Joystick = NOT FOUND");
 
