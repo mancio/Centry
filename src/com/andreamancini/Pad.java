@@ -1,5 +1,6 @@
 package com.andreamancini;
 
+import net.java.games.input.Component;
 import net.java.games.input.Controller;
 import net.java.games.input.ControllerEnvironment;
 
@@ -7,6 +8,9 @@ import java.util.ArrayList;
 
 
 class Pad {
+
+
+    private Controller[] ca = ControllerEnvironment.getDefaultEnvironment().getControllers();
 
     /*
         Controller.Type.STICK.toString() -> "Stick"
@@ -17,6 +21,8 @@ class Pad {
     */
 
     Pad() {
+
+
 
     }
 
@@ -30,7 +36,7 @@ class Pad {
      */
     String[][] listAll() {
 
-        Controller[] ca = ControllerEnvironment.getDefaultEnvironment().getControllers();
+
 
         String[][] st = new String[ca.length][2];
 
@@ -91,6 +97,34 @@ class Pad {
 
     }
 
+
+
+
+    float[] readAx(int devnum){
+
+        float[] valAx = {0, 0, 0};
+
+        if(ca[devnum-1].getType().equals(Controller.Type.STICK)) {
+
+            valAx[0] = ca[devnum - 1].getComponent(Component.Identifier.Axis.X).getPollData();
+            valAx[1] = ca[devnum - 1].getComponent(Component.Identifier.Axis.Y).getPollData();
+            valAx[2] = ca[devnum - 1].getComponent(Component.Identifier.Axis.Z).getPollData();
+
+        }else {
+
+            valAx = null;
+
+
+        }
+
+
+
+        return valAx;
+
+    }
+
+
+
     void lprint(String[][] st){
 
         System.out.println("-----------------");
@@ -120,6 +154,22 @@ class Pad {
 
         System.out.println("-----------------");
         System.out.println(" ");
+
+    }
+
+    void lprint(float[] val){
+
+        if(val == null) {
+
+            System.out.println("Joystick = NOT FOUND");
+
+        }else{
+
+            System.out.println("X axis = " + val[0]);
+            System.out.println("Y axis = " + val[1]);
+            System.out.println("Z axis = " + val[2]);
+        }
+
 
     }
 

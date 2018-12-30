@@ -12,9 +12,9 @@ class Gui {
 
 
     Gui(String ap, int l, int h){
-        appn = ap;
-        width = l;
-        height = h;
+        this.appn = ap;
+        this.width = l;
+        this.height = h;
 
 
 
@@ -74,6 +74,12 @@ class Gui {
                     "Is this your Joystick?");
             menu.add(menuItem);
         }
+
+
+
+    }
+
+    private void makeLay(){
 
 
 
