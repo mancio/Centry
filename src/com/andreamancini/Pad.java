@@ -3,13 +3,18 @@ package com.andreamancini;
 import net.java.games.input.Controller;
 import net.java.games.input.ControllerEnvironment;
 
-import java.util.Arrays;
-import java.util.Objects;
+import java.util.ArrayList;
+
 
 class Pad {
 
-    //private Controller[] ca = ControllerEnvironment.getDefaultEnvironment().getControllers();
-
+    /*
+        Controller.Type.STICK.toString() -> "Stick"
+        Controller.Type.GAMEPAD.toString() -> "Gamepad"
+        Controller.Type.WHEEL.toString() -> "Wheel"
+        Controller.Type.RUDDER.toString() -> "Rudder"
+        Controller.Type.MOUSE.toString() -> "Mouse"
+    */
 
     Pad() {
 
@@ -39,29 +44,50 @@ class Pad {
 
         }
 
-        return Arrays.stream(st).filter(Objects::nonNull).toArray(String[]::new);
+        return st;
 
 
     }
 
     String[] listJoy(String[][] st){
-        
 
+        int counter = 0;
 
-        String[][] list = st.clone();
+        ArrayList<String> list = new ArrayList<>();
 
-        for (int i = 0; i < list.length; i++){
+        for(String[] stt : st){
 
-            if(!st[i][1].equals(Controller.Type.STICK.toString())) {
-
-                list[i][0] = null;
-                list[i][1] = null;
-
+            switch (stt[1]) {
+                case "Joystick":
+                    list.add(stt[0] + " (Joystick)");
+                    counter++;
+                    break;
+                case "Gamepad":
+                    list.add(stt[0] + " (Gamepad)");
+                    counter++;
+                    break;
+                case "Wheel":
+                    list.add(stt[0] + " (Steering Wheel)");
+                    counter++;
+                    break;
+                case "Rudder":
+                    list.add(stt[0] + " (Rudder)");
+                    counter++;
+                    break;
+                case "Mouse":
+                    list.add(stt[0] + " (Mouse)");
+                    counter++;
+                    break;
             }
-
         }
 
-        return Arrays.stream(list).filter(Objects::nonNull).toArray(String[]::new);
+        if(counter == 0){
+            list.add("Device not found");
+        }
+
+
+
+        return list.toArray(new String[0]);
 
     }
 
