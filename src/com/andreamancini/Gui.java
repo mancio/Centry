@@ -27,6 +27,9 @@ class Gui {
 
         JFrame f= new JFrame(appn);//creating instance of JFrame
 
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.setAlwaysOnTop(true);
+
         f.setSize(width,height);
 
         f.setLayout(null);//using no layout managers

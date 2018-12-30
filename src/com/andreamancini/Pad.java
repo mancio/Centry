@@ -94,6 +94,7 @@ class Pad {
     void lprint(String[][] st){
 
         System.out.println("-----------------");
+        System.out.println("Device list");
         System.out.println(" ");
 
         for (String[] strings : st) {
@@ -102,8 +103,7 @@ class Pad {
 
         }
 
-        System.out.println("-----------------");
-        System.out.println(" ");
+
 
     }
 
