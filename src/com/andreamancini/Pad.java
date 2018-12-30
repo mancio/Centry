@@ -104,17 +104,22 @@ class Pad {
 
         float[] valAx = {0, 0, 0};
 
-        if(ca[devnum-1].getType().equals(Controller.Type.STICK)) {
+        if(ca[devnum-1].getComponent(Component.Identifier.Axis.X) != null) {
 
             valAx[0] = ca[devnum - 1].getComponent(Component.Identifier.Axis.X).getPollData();
-            valAx[1] = ca[devnum - 1].getComponent(Component.Identifier.Axis.Y).getPollData();
-            valAx[2] = ca[devnum - 1].getComponent(Component.Identifier.Axis.Z).getPollData();
-
         }else {
+            valAx[0] = -2;
+        }
 
-            valAx = null;
+        if(ca[devnum-1].getComponent(Component.Identifier.Axis.Y) != null) {
 
+            valAx[1] = ca[devnum - 1].getComponent(Component.Identifier.Axis.Y).getPollData();
 
+        }
+
+        if(ca[devnum-1].getComponent(Component.Identifier.Axis.Z) != null) {
+
+            valAx[2] = ca[devnum - 1].getComponent(Component.Identifier.Axis.Z).getPollData();
         }
 
 
