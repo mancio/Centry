@@ -168,15 +168,23 @@ class Pad {
 
     void lprint(float[] val){
 
-        if(val < -1.0 && val > 1.0) {
+        String[] nameax = {"X","Y","Z"};
 
-            System.out.println("Joystick = NOT FOUND");
+        int con = 0;
 
-        }else{
+        for (float ax: val) {
 
-            System.out.println("X axis = " + val[0]);
-            System.out.println("Y axis = " + val[1]);
-            System.out.println("Z axis = " + val[2]);
+            if(ax == -2){
+
+                System.out.println("Joystick axis " + nameax[con] + ": NOT FOUND");
+
+            }else {
+
+                System.out.print("Joystick axis " + nameax[con] + ": " + ax);
+            }
+
+           con++;
+
         }
 
 
