@@ -1,6 +1,7 @@
 package com.andreamancini;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 
 class Gui {
@@ -26,17 +27,34 @@ class Gui {
     private void makeFrame(JMenuBar men){
 
         JFrame f= new JFrame(appn);//creating instance of JFrame
+        //JPanel pan = new JPanel();
 
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setAlwaysOnTop(true);
 
         f.setSize(width,height);
 
-        f.setLayout(null);//using no layout managers
-        f.setVisible(true);//making the frame visible
 
         f.setJMenuBar(men);
 
+        Container pane = f.getContentPane();
+        Insets insets = pane.getInsets();
+
+
+        JLabel l1=new JLabel("Joystick Axes position");
+        Dimension size = l1.getPreferredSize();
+        l1.setBounds(width/4 + insets.left, 5 + insets.top,
+                size.width, size.height);
+
+        //JLabel l2=new JLabel("Axis X", SwingConstants.CENTER);
+
+        f.add(l1);
+        //f.add(l2);
+
+
+
+        f.setLayout (null);
+        f.setVisible(true);//making the frame visible
 
     }
 
@@ -79,11 +97,11 @@ class Gui {
 
     }
 
-    private void makeLay(){
 
 
 
-    }
+
+
 
     void build(String[] dev){
         makeFrame(makeMenu(dev));
