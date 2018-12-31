@@ -66,8 +66,9 @@ class Gui {
         f.add(l3);
         f.add(l4);
 
-        JProgressBar jb = slide(insets,size);
-        f.add(jb);
+
+        slide(f,insets,size);
+
 
 
         f.setLayout (null);
@@ -114,17 +115,32 @@ class Gui {
 
     }
 
-    private JProgressBar slide(Insets ins, Dimension size){
+    private void slide(JFrame f,Insets ins, Dimension size){
 
 
-        JProgressBar jb=new JProgressBar(0,2000);
-        jb.setBounds(width/4 + ins.left, 55 + 50 + ins.top,
-                size.width, size.height);
-        jb.setValue(0);
-        jb.setStringPainted(true);
+        JProgressBar jb1=new JProgressBar(0,200);
+        jb1.setBounds(width/4 + ins.left, 55 + ins.top,
+                size.width *5, size.height);
+        jb1.setValue(0);
+        jb1.setStringPainted(true);
 
-        return jb;
+        JProgressBar jb2=new JProgressBar(0,200);
+        jb2.setBounds(width/4 + ins.left, 55 + 50 + ins.top,
+                size.width *5, size.height);
+        jb2.setValue(0);
+        jb2.setStringPainted(true);
 
+        JProgressBar jb3=new JProgressBar(0,200);
+        jb3.setBounds(width/4 + ins.left, 55 + 50*2 + ins.top,
+                size.width *5, size.height);
+        jb3.setValue(0);
+        jb3.setStringPainted(true);
+
+
+
+        f.add(jb1);
+        f.add(jb2);
+        f.add(jb3);
     }
 
 
