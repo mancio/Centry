@@ -46,11 +46,28 @@ class Gui {
         l1.setBounds(width/4 + insets.left, 5 + insets.top,
                 size.width, size.height);
 
-        //JLabel l2=new JLabel("Axis X", SwingConstants.CENTER);
+        JLabel l2=new JLabel("Axis X");
+        size = l2.getPreferredSize();
+        l2.setBounds(10 + insets.left, 50 + insets.top,
+                size.width, size.height);
+
+        JLabel l3=new JLabel("Axis Y");
+        size = l3.getPreferredSize();
+        l3.setBounds(10 + insets.left, 55 + 50 + insets.top,
+                size.width, size.height);
+
+        JLabel l4=new JLabel("Axis Z");
+        size = l4.getPreferredSize();
+        l4.setBounds(10 + insets.left, 55 + 50*2 + insets.top,
+                size.width, size.height);
 
         f.add(l1);
-        //f.add(l2);
+        f.add(l2);
+        f.add(l3);
+        f.add(l4);
 
+        JProgressBar jb = slide(insets,size);
+        f.add(jb);
 
 
         f.setLayout (null);
@@ -94,6 +111,19 @@ class Gui {
         }
 
 
+
+    }
+
+    private JProgressBar slide(Insets ins, Dimension size){
+
+
+        JProgressBar jb=new JProgressBar(0,2000);
+        jb.setBounds(width/4 + ins.left, 55 + 50 + ins.top,
+                size.width, size.height);
+        jb.setValue(0);
+        jb.setStringPainted(true);
+
+        return jb;
 
     }
 
