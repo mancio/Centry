@@ -9,7 +9,7 @@ public class Main {
     private static int width = 300;
 
     private static int min_bar = 0;
-    private static int max_bar = 500;
+    private static int max_bar = 1000;
 
 
     public static void main(String[] args) {

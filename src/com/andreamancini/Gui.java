@@ -142,6 +142,9 @@ class Gui {
 
 
 
+
+
+
         f.add(jb1);
         f.add(jb2);
         f.add(jb3);
@@ -161,6 +164,33 @@ class Gui {
         jb1.setValue(n[0]);
         jb2.setValue(n[1]);
         jb3.setValue(n[2]);
+
+        //jb1.setStringPainted(true);
+
+        if(jb1.getPercentComplete() >= 0.495 && jb1.getPercentComplete() <= 0.5){
+
+            jb1.setForeground(Color.red);
+            //jb1.setString("10%");
+        }else {
+            jb1.setForeground(Color.green);
+        }
+
+        if(jb2.getPercentComplete() >= 0.495 && jb2.getPercentComplete() <= 0.5){
+
+            jb2.setForeground(Color.red);
+            //jb1.setString("10%");
+        }else {
+            jb2.setForeground(Color.green);
+        }
+
+        if(jb3.getPercentComplete() >= 0.495 && jb3.getPercentComplete() <= 0.5){
+
+            jb3.setForeground(Color.red);
+            //jb1.setString("10%");
+        }else {
+            jb3.setForeground(Color.green);
+        }
+
 
     }
 
