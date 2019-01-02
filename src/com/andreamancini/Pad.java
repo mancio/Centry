@@ -104,18 +104,21 @@ class Pad {
 
     float[] readAx(int devnum){
 
+        //poll the data from the Joystick selected (required before getPollData())
+        ca[devnum-1].poll();
+
         float[] valAx = {0, 0, 0};
 
         if(ca[devnum-1].getComponent(Component.Identifier.Axis.X) != null) {
 
-            valAx[0] = ca[devnum - 1].getComponent(Component.Identifier.Button._1).getPollData();
+            valAx[0] = ca[devnum - 1].getComponent(Component.Identifier.Axis.X).getPollData();
         }else {
             valAx[0] = -2;
         }
 
         if(ca[devnum-1].getComponent(Component.Identifier.Axis.Y) != null) {
 
-            valAx[1] = ca[devnum - 1].getComponent(Component.Identifier.Button._1).getPollData();
+            valAx[1] = ca[devnum - 1].getComponent(Component.Identifier.Axis.Y).getPollData();
 
         }else{
             valAx[1] = -2;
@@ -123,7 +126,7 @@ class Pad {
 
         if(ca[devnum-1].getComponent(Component.Identifier.Axis.Z) != null) {
 
-            valAx[2] = ca[devnum - 1].getComponent(Component.Identifier.Button._1).getPollData();
+            valAx[2] = ca[devnum - 1].getComponent(Component.Identifier.Axis.Z).getPollData();
         }else {
             valAx[2] = -2;
         }
@@ -131,6 +134,27 @@ class Pad {
 
 
         return valAx;
+
+    }
+
+    int mapper(float x, int out_min, int out_max){
+
+       return (int)((x - (-1.0f)) * (out_max - out_min) / (1.0f - (-1.0f)) + out_min);
+
+
+    }
+
+    int[] mapper(float[] x, int out_min, int out_max){
+
+        int[] vals = new int[3];
+
+        for (int i = 0; i<x.length; i++) {
+
+            vals[i] = (int)((x[i] - (-1.0f)) * (out_max - out_min) / (1.0f - (-1.0f)) + out_min);
+
+        }
+
+        return vals;
 
     }
 
@@ -182,7 +206,7 @@ class Pad {
 
             }else {
 
-                System.out.print("Joystick axis " + nameax[con] + ": " + ax);
+                System.out.println("Joystick axis " + nameax[con] + ": " + ax);
             }
 
            con++;
@@ -191,6 +215,32 @@ class Pad {
 
 
     }
+
+    void lprint(int[] val){
+
+        String[] nameax = {"X","Y","Z"};
+
+        int con = 0;
+
+        for (float ax: val) {
+
+            if(ax == -2){
+
+                System.out.println("Joystick axis " + nameax[con] + ": NOT FOUND");
+
+            }else {
+
+                System.out.println("Joystick axis " + nameax[con] + ": " + ax);
+            }
+
+            con++;
+
+        }
+
+
+    }
+
+
 
 
 

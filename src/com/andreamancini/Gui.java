@@ -10,7 +10,14 @@ class Gui {
     private int width;
     private int height;
 
+    private JFrame f= new JFrame(appn);//creating instance of JFrame
+    private JMenuBar menuBar;
+    private JMenu menu;
+    private JMenuItem menuItem;
 
+    private JProgressBar jb1=new JProgressBar(0,100);
+    private JProgressBar jb2=new JProgressBar(0,100);
+    private JProgressBar jb3=new JProgressBar(0,100);
 
     Gui(String ap, int l, int h){
         this.appn = ap;
@@ -26,7 +33,7 @@ class Gui {
 
     private void makeFrame(JMenuBar men){
 
-        JFrame f= new JFrame(appn);//creating instance of JFrame
+
         //JPanel pan = new JPanel();
 
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -67,7 +74,7 @@ class Gui {
         f.add(l4);
 
 
-        slide(f,insets,size);
+        slide(insets,size);
 
 
 
@@ -76,10 +83,9 @@ class Gui {
 
     }
 
-    private JMenuBar makeMenu(String[] dev){
+    private void makeMenu(String[] dev){
 
-        JMenuBar menuBar;
-        JMenu menu;
+
 
         //Create the menu bar.
         menuBar = new JMenuBar();
@@ -91,16 +97,16 @@ class Gui {
                 "Select your Joystick");
         menuBar.add(menu);
 
-        makeItMen(menu, dev);
+        makeItMen(dev);
 
-        return menuBar;
+
 
     }
 
 
-    private void makeItMen(JMenu menu, String[] dev) {
+    private void makeItMen(String[] dev) {
 
-        JMenuItem menuItem;
+
 
         for(String string : dev) {
 
@@ -115,25 +121,23 @@ class Gui {
 
     }
 
-    private void slide(JFrame f,Insets ins, Dimension size){
+    private void slide(Insets ins, Dimension size){
 
-
-        JProgressBar jb1=new JProgressBar(0,200);
         jb1.setBounds(width/4 + ins.left, 55 + ins.top,
                 size.width *5, size.height);
-        jb1.setValue(0);
+        jb1.setValue(50);
         jb1.setStringPainted(true);
 
-        JProgressBar jb2=new JProgressBar(0,200);
+
         jb2.setBounds(width/4 + ins.left, 55 + 50 + ins.top,
                 size.width *5, size.height);
-        jb2.setValue(0);
+        jb2.setValue(50);
         jb2.setStringPainted(true);
 
-        JProgressBar jb3=new JProgressBar(0,200);
+
         jb3.setBounds(width/4 + ins.left, 55 + 50*2 + ins.top,
                 size.width *5, size.height);
-        jb3.setValue(0);
+        jb3.setValue(50);
         jb3.setStringPainted(true);
 
 
@@ -144,13 +148,21 @@ class Gui {
     }
 
 
+    void setbar(int[] n){
+
+        jb1.setValue(n[0]);
+        jb2.setValue(n[1]);
+        jb3.setValue(n[2]);
+
+    }
 
 
 
 
 
     void build(String[] dev){
-        makeFrame(makeMenu(dev));
+        makeMenu(dev);
+        makeFrame(menuBar);
     }
 
 

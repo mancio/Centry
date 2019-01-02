@@ -21,25 +21,31 @@ public class Main {
 
         p.lprint(sj, "playing device");
 
+        Gui g = new Gui(appname, height, width);
+
+        g.build(sj);
+
         while (true) {
 
-            float[] devals = p.readAx(7);
+            float[] devals = p.readAx(13);
 
-            p.lprint(devals);
+            int[] i = p.mapper(devals,0,100);
+
+            p.lprint(i);
+
+            g.setbar(i);
 
             try {
-                Thread.sleep(20);
+                Thread.sleep(50);
             } catch (InterruptedException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
 
-        /*
-        Gui g = new Gui(appname, height, width);
 
-        g.build(sj);
-        */
+
+
 
 
     }
