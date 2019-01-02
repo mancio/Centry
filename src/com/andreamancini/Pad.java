@@ -64,7 +64,7 @@ class Pad {
         for(String[] stt : st){
 
             switch (stt[1]) {
-                case "Joystick":
+                case "Stick":
                     list.add(stt[0] + " (Joystick)");
                     counter++;
                     break;
@@ -80,10 +80,12 @@ class Pad {
                     list.add(stt[0] + " (Rudder)");
                     counter++;
                     break;
+                /*
                 case "Mouse":
                     list.add(stt[0] + " (Mouse)");
                     counter++;
                     break;
+                 */
             }
         }
 
@@ -106,14 +108,14 @@ class Pad {
 
         if(ca[devnum-1].getComponent(Component.Identifier.Axis.X) != null) {
 
-            valAx[0] = ca[devnum - 1].getComponent(Component.Identifier.Axis.X).getPollData();
+            valAx[0] = ca[devnum - 1].getComponent(Component.Identifier.Button._1).getPollData();
         }else {
             valAx[0] = -2;
         }
 
         if(ca[devnum-1].getComponent(Component.Identifier.Axis.Y) != null) {
 
-            valAx[1] = ca[devnum - 1].getComponent(Component.Identifier.Axis.Y).getPollData();
+            valAx[1] = ca[devnum - 1].getComponent(Component.Identifier.Button._1).getPollData();
 
         }else{
             valAx[1] = -2;
@@ -121,7 +123,7 @@ class Pad {
 
         if(ca[devnum-1].getComponent(Component.Identifier.Axis.Z) != null) {
 
-            valAx[2] = ca[devnum - 1].getComponent(Component.Identifier.Axis.Z).getPollData();
+            valAx[2] = ca[devnum - 1].getComponent(Component.Identifier.Button._1).getPollData();
         }else {
             valAx[2] = -2;
         }
