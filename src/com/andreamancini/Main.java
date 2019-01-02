@@ -8,6 +8,9 @@ public class Main {
     private static int height = 300;
     private static int width = 300;
 
+    private static int min_bar = 0;
+    private static int max_bar = 500;
+
 
     public static void main(String[] args) {
 
@@ -29,11 +32,11 @@ public class Main {
 
             float[] devals = p.readAx(13);
 
-            int[] i = p.mapper(devals,0,100);
+            int[] i = p.mapper(devals,min_bar,max_bar);
 
             p.lprint(i);
 
-            g.setbar(i);
+            g.setbar(i,min_bar,max_bar);
 
             try {
                 Thread.sleep(50);

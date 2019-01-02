@@ -148,7 +148,15 @@ class Gui {
     }
 
 
-    void setbar(int[] n){
+    void setbar(int[] n, int val_min, int val_max){
+
+        jb1.setMinimum(val_min);
+        jb2.setMinimum(val_min);
+        jb3.setMinimum(val_min);
+
+        jb1.setMaximum(val_max);
+        jb2.setMaximum(val_max);
+        jb3.setMaximum(val_max);
 
         jb1.setValue(n[0]);
         jb2.setValue(n[1]);
