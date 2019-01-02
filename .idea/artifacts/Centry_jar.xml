@@ -5,6 +5,7 @@
       <element id="module-output" name="Centry" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/jinput-test.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/jinput-2.0.9.jar" path-in-jar="/" />
+      <element id="library" level="project" name="lib" />
     </root>
   </artifact>
 </component>
