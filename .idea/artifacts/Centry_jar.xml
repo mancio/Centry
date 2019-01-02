@@ -5,6 +5,12 @@
       <element id="module-output" name="Centry" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/jinput-test.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/jinput-2.0.9.jar" path-in-jar="/" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/jinput-raw_64.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/libjinput-osx.jnilib" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/jinput-wintab.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/jinput-dx8_64.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/jinput-raw.dll" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/libjinput-linux.so" />
       <element id="library" level="project" name="lib" />
     </root>
   </artifact>
