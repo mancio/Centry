@@ -13,7 +13,8 @@ class Gui {
     private JFrame f= new JFrame(appn);//creating instance of JFrame
     private JMenuBar menuBar;
     private JMenu menu;
-    private JMenuItem menuItem;
+    ButtonGroup buttonGroup = new ButtonGroup();
+    private JRadioButtonMenuItem menuItem;
 
     private JProgressBar jb1=new JProgressBar(0,100);
     private JProgressBar jb2=new JProgressBar(0,100);
@@ -97,6 +98,7 @@ class Gui {
                 "Select your Joystick");
         menuBar.add(menu);
 
+
         makeItMen(dev);
 
 
@@ -110,14 +112,30 @@ class Gui {
 
         for(String string : dev) {
 
-            menuItem = new JMenuItem(string, KeyEvent.VK_J);
+            menuItem = new JRadioButtonMenuItem(string);
 
-            menuItem.getAccessibleContext().setAccessibleDescription(
-                    "Is this your Joystick?");
+            buttonGroup.add(menuItem);
             menu.add(menuItem);
+
+            if(string.equals(dev[0])){
+                menuItem.setSelected(true);
+            }
+
+
+
         }
 
 
+    }
+
+
+    void selector(){
+
+
+        if(menuItem.isSelected()) {
+
+            System.out.println(menuItem.getText());
+        }
 
     }
 

@@ -30,13 +30,18 @@ public class Main {
 
         while (true) {
 
-            float[] devals = p.readAx(13);
+
+
+            float[] devals = p.readAx(1);
 
             int[] i = p.mapper(devals,min_bar,max_bar);
 
             p.lprint(i);
 
             g.setbar(i,min_bar,max_bar);
+
+
+            g.selector();
 
             try {
                 Thread.sleep(50);

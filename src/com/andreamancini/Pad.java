@@ -57,7 +57,7 @@ class Pad {
 
     String[] listJoy(String[][] st){
 
-        int counter = 0;
+        int counter = 1;
 
         ArrayList<String> list = new ArrayList<>();
 
@@ -65,28 +65,32 @@ class Pad {
 
             switch (stt[1]) {
                 case "Stick":
-                    list.add(stt[0] + " (Joystick)");
+                    list.add(counter + ": " + stt[0] + " (Joystick)");
                     counter++;
                     break;
                 case "Gamepad":
-                    list.add(stt[0] + " (Gamepad)");
+                    list.add(counter + ": " + stt[0] + " (Gamepad)");
                     counter++;
                     break;
                 case "Wheel":
-                    list.add(stt[0] + " (Steering Wheel)");
+                    list.add(counter + ": " + stt[0] + " (Steering Wheel)");
                     counter++;
                     break;
                 case "Rudder":
-                    list.add(stt[0] + " (Rudder)");
+                    list.add(counter + ": " +  stt[0] + " (Rudder)");
                     counter++;
                     break;
-                /*
+
                 case "Mouse":
-                    list.add(stt[0] + " (Mouse)");
+                    list.add(counter + ": " +  stt[0] + " (Mouse)");
                     counter++;
                     break;
-                 */
+
             }
+
+
+
+
         }
 
         if(counter == 0){
@@ -96,6 +100,29 @@ class Pad {
 
 
         return list.toArray(new String[0]);
+
+    }
+
+
+    private int dev_finder(String s){
+
+
+        for (int i = 0; i < ca.length; i++) {
+
+            /* Get the name of the controller */
+
+            if(s.equals(ca[i].getName())){
+
+                return i;
+
+            }
+
+
+
+
+        }
+
+        return -1;
 
     }
 
