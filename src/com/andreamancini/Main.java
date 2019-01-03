@@ -4,6 +4,8 @@ package com.andreamancini;
 
 public class Main {
 
+
+
     private static String appname = "Centry";
     private static int height = 300;
     private static int width = 300;
@@ -13,6 +15,8 @@ public class Main {
 
 
     public static void main(String[] args) {
+
+
 
         Pad p = new Pad();
 
@@ -30,18 +34,18 @@ public class Main {
 
         while (true) {
 
+            int devnum = p.dev_finder(g.name_finder());
 
-
-            float[] devals = p.readAx(1);
+            float[] devals = p.readAx(devnum);
 
             int[] i = p.mapper(devals,min_bar,max_bar);
 
-            p.lprint(i);
+            //p.lprint(i);
 
             g.setbar(i,min_bar,max_bar);
 
 
-            g.selector();
+
 
             try {
                 Thread.sleep(50);

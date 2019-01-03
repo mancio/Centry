@@ -80,12 +80,12 @@ class Pad {
                     list.add(counter + ": " +  stt[0] + " (Rudder)");
                     counter++;
                     break;
-
+                /*
                 case "Mouse":
                     list.add(counter + ": " +  stt[0] + " (Mouse)");
                     counter++;
                     break;
-
+                */
             }
 
 
@@ -104,14 +104,14 @@ class Pad {
     }
 
 
-    private int dev_finder(String s){
+    int dev_finder(String s){
 
 
         for (int i = 0; i < ca.length; i++) {
 
             /* Get the name of the controller */
 
-            if(s.equals(ca[i].getName())){
+            if(s.contains(ca[i].getName())){
 
                 return i;
 
@@ -132,28 +132,28 @@ class Pad {
     float[] readAx(int devnum){
 
         //poll the data from the Joystick selected (required before getPollData())
-        ca[devnum-1].poll();
+        ca[devnum].poll();
 
         float[] valAx = {0, 0, 0};
 
-        if(ca[devnum-1].getComponent(Component.Identifier.Axis.X) != null) {
+        if(ca[devnum].getComponent(Component.Identifier.Axis.X) != null) {
 
-            valAx[0] = ca[devnum - 1].getComponent(Component.Identifier.Axis.X).getPollData();
+            valAx[0] = ca[devnum].getComponent(Component.Identifier.Axis.X).getPollData();
         }else {
             valAx[0] = -2;
         }
 
-        if(ca[devnum-1].getComponent(Component.Identifier.Axis.Y) != null) {
+        if(ca[devnum].getComponent(Component.Identifier.Axis.Y) != null) {
 
-            valAx[1] = ca[devnum - 1].getComponent(Component.Identifier.Axis.Y).getPollData();
+            valAx[1] = ca[devnum].getComponent(Component.Identifier.Axis.Y).getPollData();
 
         }else{
             valAx[1] = -2;
         }
 
-        if(ca[devnum-1].getComponent(Component.Identifier.Axis.Z) != null) {
+        if(ca[devnum].getComponent(Component.Identifier.Axis.Z) != null) {
 
-            valAx[2] = ca[devnum - 1].getComponent(Component.Identifier.Axis.Z).getPollData();
+            valAx[2] = ca[devnum].getComponent(Component.Identifier.Axis.Z).getPollData();
         }else {
             valAx[2] = -2;
         }

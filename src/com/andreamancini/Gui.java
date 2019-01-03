@@ -13,12 +13,15 @@ class Gui {
     private JFrame f= new JFrame(appn);//creating instance of JFrame
     private JMenuBar menuBar;
     private JMenu menu;
-    ButtonGroup buttonGroup = new ButtonGroup();
+    private ButtonGroup buttonGroup = new ButtonGroup();
     private JRadioButtonMenuItem menuItem;
 
     private JProgressBar jb1=new JProgressBar(0,100);
     private JProgressBar jb2=new JProgressBar(0,100);
     private JProgressBar jb3=new JProgressBar(0,100);
+
+    private double per_min = 0.498;
+    private double per_max = 0.502;
 
     Gui(String ap, int l, int h){
         this.appn = ap;
@@ -114,6 +117,8 @@ class Gui {
 
             menuItem = new JRadioButtonMenuItem(string);
 
+            menuItem.setActionCommand(string);
+
             buttonGroup.add(menuItem);
             menu.add(menuItem);
 
@@ -129,15 +134,17 @@ class Gui {
     }
 
 
-    void selector(){
+    String name_finder(){
 
 
-        if(menuItem.isSelected()) {
+        String name = buttonGroup.getSelection().getActionCommand();
 
-            System.out.println(menuItem.getText());
-        }
+        //System.out.println(name);
 
+        return name;
     }
+
+
 
     private void slide(Insets ins, Dimension size){
 
@@ -185,28 +192,28 @@ class Gui {
 
         //jb1.setStringPainted(true);
 
-        if(jb1.getPercentComplete() >= 0.495 && jb1.getPercentComplete() <= 0.5){
+        if(jb1.getPercentComplete() >= per_min && jb1.getPercentComplete() <= per_max){
 
-            jb1.setForeground(Color.red);
-            //jb1.setString("10%");
-        }else {
             jb1.setForeground(Color.green);
-        }
-
-        if(jb2.getPercentComplete() >= 0.495 && jb2.getPercentComplete() <= 0.5){
-
-            jb2.setForeground(Color.red);
             //jb1.setString("10%");
         }else {
+            jb1.setForeground(Color.red);
+        }
+
+        if(jb2.getPercentComplete() >= per_min && jb2.getPercentComplete() <= per_max){
+
             jb2.setForeground(Color.green);
-        }
-
-        if(jb3.getPercentComplete() >= 0.495 && jb3.getPercentComplete() <= 0.5){
-
-            jb3.setForeground(Color.red);
             //jb1.setString("10%");
         }else {
+            jb2.setForeground(Color.red);
+        }
+
+        if(jb3.getPercentComplete() >= per_min && jb3.getPercentComplete() <= per_max){
+
             jb3.setForeground(Color.green);
+            //jb1.setString("10%");
+        }else {
+            jb3.setForeground(Color.red);
         }
 
 
