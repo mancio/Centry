@@ -1,7 +1,7 @@
 package com.andreamancini;
 
 
-
+import java.io.File;
 
 public class Main {
 
@@ -19,6 +19,22 @@ public class Main {
 
 
     public static void main(String[] args) {
+
+        try {
+
+            // get the path where the jar is executed
+            String f = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+
+            // remove the .jar filename from the path to have Disk\my\folder\dllfiles\
+            String path = f.replace("\\Centry.jar", "");
+
+            System.out.println(path);
+
+            // set the .jar folder where is executed as input library
+            System.setProperty("net.java.games.input.librarypath", path);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
         // input device class
         Pad p = new Pad();

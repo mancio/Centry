@@ -24,6 +24,8 @@ class Gui {
     private double per_min = 0.498;
     private double per_max = 0.502;
 
+
+
     Gui(String ap, int l, int h){
         this.appn = ap;
         this.width = l;
@@ -138,11 +140,11 @@ class Gui {
     String name_finder(){
 
 
-        String name = buttonGroup.getSelection().getActionCommand();
 
-        System.out.println(name);
 
-        return name;
+        //System.out.println(name);
+
+        return buttonGroup.getSelection().getActionCommand();
     }
 
 
