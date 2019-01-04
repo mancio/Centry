@@ -11,6 +11,7 @@ class Gui {
     private int height;
 
     private JFrame f= new JFrame(appn);//creating instance of JFrame
+    private Insets insets = new Insets(0,0,0,0);
     private JMenuBar menuBar;
     private JMenu menu;
     private ButtonGroup buttonGroup = new ButtonGroup();
@@ -49,7 +50,7 @@ class Gui {
         f.setJMenuBar(men);
 
         Container pane = f.getContentPane();
-        Insets insets = pane.getInsets();
+        insets = pane.getInsets();
 
 
         JLabel l1=new JLabel("Joystick Axes position");
@@ -139,7 +140,7 @@ class Gui {
 
         String name = buttonGroup.getSelection().getActionCommand();
 
-        //System.out.println(name);
+        System.out.println(name);
 
         return name;
     }
@@ -216,6 +217,32 @@ class Gui {
             jb3.setForeground(Color.red);
         }
 
+
+    }
+
+    void nojoy(){
+
+        jb1.setVisible(false);
+        jb2.setVisible(false);
+        jb3.setVisible(false);
+
+        JLabel lno1 =new JLabel("JOYSTICK NOT FOUND");
+
+        Dimension size1 = lno1.getPreferredSize();
+        lno1.setBounds(width/4 + insets.left, 80 + insets.top,
+                size1.width, size1.height);
+
+        JLabel lno2 =new JLabel("PLEASE CONNECT A DEVICE");
+
+        Dimension size2 = lno2.getPreferredSize();
+        lno2.setBounds(width/5 + insets.left, 80 + 30 + insets.top,
+                size2.width, size2.height);
+
+        lno1.setForeground(Color.red);
+        lno2.setForeground(Color.red);
+
+        f.add(lno1);
+        f.add(lno2);
 
     }
 

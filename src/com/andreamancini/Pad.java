@@ -93,7 +93,7 @@ class Pad {
 
         }
 
-        if(counter == 0){
+        if(counter == 1){
             list.add("Device not found");
         }
 

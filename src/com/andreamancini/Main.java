@@ -36,14 +36,29 @@ public class Main {
 
             int devnum = p.dev_finder(g.name_finder());
 
-            float[] devals = p.readAx(devnum);
+            if(devnum != -1) {
 
-            int[] i = p.mapper(devals,min_bar,max_bar);
+                float[] devals = p.readAx(devnum);
 
-            //p.lprint(i);
+                int[] i = p.mapper(devals, min_bar, max_bar);
 
-            g.setbar(i,min_bar,max_bar);
+                //p.lprint(i);
 
+                g.setbar(i, min_bar, max_bar);
+
+            }else{
+
+                g.nojoy();
+
+                try {
+                    Thread.sleep(5000);
+                    System.exit(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                    System.exit(1);
+                }
+
+            }
 
 
 
