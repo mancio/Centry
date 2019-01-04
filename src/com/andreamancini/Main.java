@@ -2,6 +2,7 @@ package com.andreamancini;
 
 
 
+
 public class Main {
 
 
@@ -18,7 +19,6 @@ public class Main {
 
 
     public static void main(String[] args) {
-
 
         // input device class
         Pad p = new Pad();
