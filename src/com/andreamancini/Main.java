@@ -69,6 +69,7 @@ public class Main {
         // input device class
         Pad p = new Pad();
 
+        // build a Controller array with all the controls connected
         p.populate();
 
         // retrieve all the device dev name, dev type
