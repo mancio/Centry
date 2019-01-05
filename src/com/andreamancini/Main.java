@@ -10,30 +10,36 @@ public class Main {
     private static String appname = "Centry";
 
     // icon dimensions
-    private static int height = 300;
+    private static int height = 250;
     private static int width = 300;
 
     // slide bar dimension
     private static int min_bar = 0;
     private static int max_bar = 1000;
 
+    // run inside intellij or execute final compiled jar.
+    private static String state = "build";
+
 
     public static void main(String[] args) {
 
-        try {
+        // try and catch only if you want build the final executable .jar
+        if(!state.equals("build")) {
+            try {
 
-            // get the path where the jar is executed
-            String f = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+                // get the path where the jar is executed
+                String f = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
 
-            // remove the .jar filename from the path to have Disk\my\folder\dllfiles\
-            String path = f.replace("\\Centry.jar", "");
+                // remove the .jar filename from the path to have Disk\my\folder\dllfiles\
+                String path = f.replace("\\Centry.jar", "");
 
-            System.out.println(path);
+                System.out.println(path);
 
-            // set the .jar folder where is executed as input library
-            System.setProperty("net.java.games.input.librarypath", path);
-        }catch (Exception e){
-            e.printStackTrace();
+                // set the .jar folder where is executed as input library
+                System.setProperty("net.java.games.input.librarypath", path);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         // input device class
@@ -59,7 +65,7 @@ public class Main {
         p.lprint(sj, "playing device");
 
         // graphic builder class
-        Gui g = new Gui(appname, height, width);
+        Gui g = new Gui(appname, width, height);
 
         // generate icon, texts and slides
         g.build(sj);
