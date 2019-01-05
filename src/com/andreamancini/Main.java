@@ -37,10 +37,9 @@ public class Main {
     private static int max_bar = 1000;
 
     // run inside intellij or build true to execute final compiled jar.
-    private static boolean build = false;
+    private static boolean build = true;
 
-    // test the app with a fake controller
-    private static boolean test = true;
+
 
     public static void main(String[] args) {
 
