@@ -33,8 +33,8 @@ is not able to find the right directory path where the .jar is executed.
 Increase `private static int max_bar` value in Main class.
 
 **4. Still lag after changing max_bar:**
-Decrrease the sleep time in `Thread.sleep(50)`
+Decrease the sleep time in `Thread.sleep(50)`
 
 ### Please READ
-The lib folder contain jinput library .dll files. These file are not under LGPL licence please contact the owner
+The lib folder contain Jinput library .dll files. These file are not under LGPL licence please contact the owner
 to ask more info.

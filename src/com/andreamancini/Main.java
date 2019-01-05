@@ -42,7 +42,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // try and catch only if you want build the final executable .jar
+        /* try and catch only if you want build the final executable .jar
         if(!state.equals("build")) {
             try {
 
@@ -59,7 +59,7 @@ public class Main {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
+        }*/
 
         // input device class
         Pad p = new Pad();
