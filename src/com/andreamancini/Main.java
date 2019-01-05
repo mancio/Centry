@@ -36,14 +36,16 @@ public class Main {
     private static int min_bar = 0;
     private static int max_bar = 1000;
 
-    // run inside intellij or "build" = execute final compiled jar.
-    private static String state = "build";
+    // run inside intellij or build true to execute final compiled jar.
+    private static boolean build = false;
 
+    // test the app with a fake controller
+    private static boolean test = true;
 
     public static void main(String[] args) {
 
-        /* try and catch only if you want build the final executable .jar
-        if(!state.equals("build")) {
+        //try and catch only if you want build the final executable .jar
+        if(build) {
             try {
 
                 // get the path where the jar is executed
@@ -58,11 +60,17 @@ public class Main {
                 System.setProperty("net.java.games.input.librarypath", path);
             } catch (Exception e) {
                 e.printStackTrace();
+                System.out.println("Unable to load .dll files path");
             }
-        }*/
+        }
+
+
+
 
         // input device class
         Pad p = new Pad();
+
+        p.populate();
 
         // retrieve all the device dev name, dev type
         String[][] st = p.listAll();
@@ -78,6 +86,9 @@ public class Main {
         Dell KB216 Wired Keyboard | Unknown
         Dell KB216 Wired Keyboard | Unknown
         */
+
+
+
         p.lprint(st);
 
         // ex. playing device is: Device not found

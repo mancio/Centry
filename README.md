@@ -22,8 +22,8 @@ Check if you have the following files in the lib folder:
 These file must be in the same folder of the .jar
 
 **2. DLLs not found but inside the .jar folder:**
-Check in the Main class in the source code if there is `if(state.equals("build"))` and
-replace with `if(!state.equals("build"))` and rebuild the .jar. and start the app
+Check in the Main class in the source code if `boolean build = true` and
+replace with `boolean build = false`, rebuild the .jar. and start the app
 from the command line `java -Djava.library.path=. -jar Centry.jar`
 This procedure is needed because 
 `File(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath()`

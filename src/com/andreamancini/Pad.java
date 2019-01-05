@@ -29,7 +29,7 @@ import java.util.ArrayList;
 class Pad {
 
 
-    private Controller[] ca = ControllerEnvironment.getDefaultEnvironment().getControllers();
+    private Controller[] ca = new Controller[0];
 
     /*
         Controller.Type.STICK.toString() -> "Stick"
@@ -45,7 +45,14 @@ class Pad {
 
     }
 
-    
+
+    void populate(){
+
+        ca = ControllerEnvironment.getDefaultEnvironment().getControllers();
+
+    }
+
+
     
     /* array of 2 el arrays 
         |0| -> | name device | type |
@@ -285,8 +292,6 @@ class Pad {
 
 
     }
-
-
 
 
 
