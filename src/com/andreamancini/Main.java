@@ -17,7 +17,7 @@ public class Main {
     private static int min_bar = 0;
     private static int max_bar = 1000;
 
-    // run inside intellij or execute final compiled jar.
+    // run inside intellij or "build" = execute final compiled jar.
     private static String state = "build";
 
 
