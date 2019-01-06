@@ -37,8 +37,11 @@ public class Main {
     private static int max_bar = 1000;
 
     // run inside intellij or build true to execute final compiled jar.
-    private static boolean build = true;
+    //private static boolean build = true;
+    private static boolean build = false;
 
+    private static boolean test = true;
+    //private static boolean test = false;
 
 
     public static void main(String[] args) {
@@ -70,10 +73,10 @@ public class Main {
         Pad p = new Pad();
 
         // build a Controller array with all the controls connected
-        p.populate();
+        p.populate(test);
 
         // retrieve all the device dev name, dev type
-        String[][] st = p.listAll();
+        String[][] st = p.listAll(test);
 
         // ex: 1: Arduino (Joystick)
         String[] sj = p.listJoy(st);

@@ -30,6 +30,7 @@ class Pad {
 
 
     private Controller[] ca = new Controller[0];
+    private FakeCont[] fc = new FakeCont[0];
 
     /*
         Controller.Type.STICK.toString() -> "Stick"
@@ -46,10 +47,18 @@ class Pad {
     }
 
 
-    void populate(){
+    void populate(boolean test){
 
-        ca = ControllerEnvironment.getDefaultEnvironment().getControllers();
+        if(test){
 
+            fc = FakeContrMan.plug(2);
+            System.out.println(" ");
+
+        }else {
+
+            ca = ControllerEnvironment.getDefaultEnvironment().getControllers();
+
+        }
     }
 
 
@@ -60,23 +69,43 @@ class Pad {
         |2| -> | name device | type |
         ...
      */
-    String[][] listAll() {
+    String[][] listAll(boolean test) {
 
 
 
-        String[][] st = new String[ca.length][2];
+        if(test){
 
-        for (int i = 0; i < ca.length; i++) {
+            String[][] st = new String[fc.length][2];
 
-            /* Get the name of the controller */
+            for (int i = 0; i < fc.length; i++) {
 
-            st[i][0] = ca[i].getName();
-            st[i][1] = ca[i].getType().toString();
+                /* Get the name of the controller */
+
+                st[i][0] = fc[i].getName();
+                st[i][1] = fc[i].getType();
 
 
+            }
+
+            return st;
+
+        }else {
+
+            String[][] st = new String[ca.length][2];
+
+            for (int i = 0; i < ca.length; i++) {
+
+                /* Get the name of the controller */
+
+                st[i][0] = ca[i].getName();
+                st[i][1] = ca[i].getType().toString();
+
+
+            }
+
+            return st;
         }
 
-        return st;
 
 
     }
