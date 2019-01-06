@@ -159,22 +159,34 @@ class Pad {
     }
 
 
-    int dev_finder(String s){
+    int dev_finder(String s, boolean test){
 
+        if(test) {
 
-        for (int i = 0; i < ca.length; i++) {
+            for (int i = 0; i < fc.length; i++) {
 
-            /* Get the name of the controller */
+                /* Get the name of the controller */
 
-            if(s.contains(ca[i].getName())){
+                if (s.contains(fc[i].getName())) {
 
-                return i;
+                    return i;
 
+                }
             }
 
 
+        }else {
+            for (int i = 0; i < ca.length; i++) {
 
+                /* Get the name of the controller */
 
+                if (s.contains(ca[i].getName())) {
+
+                    return i;
+
+                }
+
+            }
         }
 
         return -1;
@@ -184,35 +196,46 @@ class Pad {
 
 
 
-    float[] readAx(int devnum){
+    float[] readAx(int devnum, boolean test){
 
-        //poll the data from the Joystick selected (required before getPollData())
-        ca[devnum].poll();
+
 
         float[] valAx = {0, 0, 0};
 
-        if(ca[devnum].getComponent(Component.Identifier.Axis.X) != null) {
+        if(test) {
 
-            valAx[0] = ca[devnum].getComponent(Component.Identifier.Axis.X).getPollData();
+            valAx[0] = fc[devnum].getX();
+            valAx[1] = fc[devnum].getY();
+            valAx[2] = fc[devnum].getZ();
+
         }else {
-            valAx[0] = -2;
+
+            //poll the data from the Joystick selected (required before getPollData())
+            ca[devnum].poll();
+
+            if (ca[devnum].getComponent(Component.Identifier.Axis.X) != null) {
+
+                valAx[0] = ca[devnum].getComponent(Component.Identifier.Axis.X).getPollData();
+            } else {
+                valAx[0] = -2;
+            }
+
+            if (ca[devnum].getComponent(Component.Identifier.Axis.Y) != null) {
+
+                valAx[1] = ca[devnum].getComponent(Component.Identifier.Axis.Y).getPollData();
+
+            } else {
+                valAx[1] = -2;
+            }
+
+            if (ca[devnum].getComponent(Component.Identifier.Axis.Z) != null) {
+
+                valAx[2] = ca[devnum].getComponent(Component.Identifier.Axis.Z).getPollData();
+            } else {
+                valAx[2] = -2;
+            }
+
         }
-
-        if(ca[devnum].getComponent(Component.Identifier.Axis.Y) != null) {
-
-            valAx[1] = ca[devnum].getComponent(Component.Identifier.Axis.Y).getPollData();
-
-        }else{
-            valAx[1] = -2;
-        }
-
-        if(ca[devnum].getComponent(Component.Identifier.Axis.Z) != null) {
-
-            valAx[2] = ca[devnum].getComponent(Component.Identifier.Axis.Z).getPollData();
-        }else {
-            valAx[2] = -2;
-        }
-
 
 
         return valAx;
@@ -240,6 +263,11 @@ class Pad {
 
     }
 
+
+    void turn(int dev, String ax, float inc){
+
+        fc[dev].move(ax, inc);
+    }
 
 
     void lprint(String[][] st){

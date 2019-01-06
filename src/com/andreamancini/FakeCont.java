@@ -30,6 +30,16 @@ class FakeCont {
         return type;
     }
 
+    float getX(){
+        return x;
+    }
+    float getY(){
+        return y;
+    }
+    float getZ(){
+        return z;
+    }
+
 
     void move(String ax, float inc){
 
@@ -41,13 +51,14 @@ class FakeCont {
                     if(x >= 1) {
                         this.x = x - inc;
                         this.trend = -1;
+
                     }else{
                         this.x = x + inc;
                     }
                 }else if(trend == -1){
-                    if(x <= 1) {
+                    if(x <= -1) {
                         this.x = x + inc;
-                        trend = 1;
+                        this.trend = 1;
                     }else {
                         this.x = x - inc;
                     }
@@ -57,7 +68,7 @@ class FakeCont {
 
             case "y":
                 if(trend == 1){
-                    if(y >= 1) {
+                    if(y >= 1.0f) {
                         this.y = y - inc;
                         trend = -1;
                     }else{

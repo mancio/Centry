@@ -109,12 +109,12 @@ public class Main {
                in the list
                if the device is not a Stick, Gamepad, Wheel or Rudder return -1
              */
-            int devnum = p.dev_finder(g.name_finder());
+            int devnum = p.dev_finder(g.name_finder(), test);
 
             if(devnum != -1) {
 
                 // store axis analog value
-                float[] devals = p.readAx(devnum);
+                float[] devals = p.readAx(devnum, test);
 
                 // map the value from scale -1.0f -> 1.0f to min_bar -> max_bar
                 int[] i = p.mapper(devals, min_bar, max_bar);
@@ -148,6 +148,15 @@ public class Main {
 
                 e.printStackTrace();
             }
+
+
+            if(test) {
+                p.turn(devnum, "x", 0.1f);
+                p.turn(devnum, "y", 0.1f);
+                p.turn(devnum, "z", 0.1f);
+
+            }
+
         }
 
 
