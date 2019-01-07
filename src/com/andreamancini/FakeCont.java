@@ -7,7 +7,10 @@ class FakeCont {
      private float x;
      private float y;
      private float z;
-     private int trend;
+     private int trendx;
+     private int trendy;
+     private int trendz;
+
 
     FakeCont(){
 
@@ -16,7 +19,9 @@ class FakeCont {
         this.x = 0.0f;
         this.y = 0.0f;
         this.z = 0.0f;
-        this.trend = 1;
+        this.trendx = 1;
+        this.trendy = 1;
+        this.trendz = 1;
 
     }
 
@@ -47,58 +52,60 @@ class FakeCont {
         switch (ax){
 
             case "x":
-                if(trend == 1){
-                    if(x >= 1) {
-                        this.x = x - inc;
-                        this.trend = -1;
+                if(trendx == 1){
+                    if(x >= 1.0f) {
+                        x = x - inc;
+                        trendx = -1;
 
                     }else{
-                        this.x = x + inc;
+                        x = x + inc;
                     }
-                }else if(trend == -1){
-                    if(x <= -1) {
-                        this.x = x + inc;
-                        this.trend = 1;
+                }else if(trendx == -1){
+                    if(x <= -1.0f) {
+                        x = x + inc;
+                        trendx = 1;
                     }else {
-                        this.x = x - inc;
+                        x = x - inc;
                     }
                 }
 
                 break;
 
             case "y":
-                if(trend == 1){
+                if(trendy == 1){
                     if(y >= 1.0f) {
-                        this.y = y - inc;
-                        trend = -1;
+                        y = y - inc;
+                        trendy = -1;
+
                     }else{
-                        this.y = y + inc;
+                        y = y + inc;
                     }
-                }else if(trend == -1){
-                    if(y <= 1) {
-                        this.y = y + inc;
-                        trend = 1;
+                }else if(trendy == -1){
+                    if(y <= -1.0f) {
+                        y = y + inc;
+                        trendy = 1;
                     }else {
-                        this.y = y - inc;
+                        y = y - inc;
                     }
                 }
 
                 break;
 
             case "z":
-                if(trend == 1){
-                    if(z >= 1) {
-                        this.z = z - inc;
-                        trend = -1;
+                if(trendz == 1){
+                    if(z >= 1.0f) {
+                        z = z - inc;
+                        trendz = -1;
+
                     }else{
-                        this.z = z + inc;
+                        z = z + inc;
                     }
-                }else if(trend == -1){
-                    if(z <= 1) {
-                        this.z = z + inc;
-                        trend = 1;
+                }else if(trendz == -1){
+                    if(z <= -1.0f) {
+                        z = z + inc;
+                        trendz = 1;
                     }else {
-                        this.z = z - inc;
+                        z = z - inc;
                     }
                 }
 
