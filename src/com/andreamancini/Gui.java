@@ -269,12 +269,29 @@ class Gui {
     }
 
 
+    private void testlabel(){
+
+        JLabel t1=new JLabel("TEST MODE");
+        t1.setForeground(Color.red);
+        Dimension size = t1.getPreferredSize();
+        t1.setBounds(width/4 + insets.left, 5 + 20 + insets.top,
+                size.width, size.height);
+
+        f.add(t1);
+
+
+    }
 
 
 
-    void build(String[] dev){
+
+
+    void build(String[] dev, boolean test){
         makeMenu(dev);
         makeFrame(menuBar);
+        if(test) {
+            testlabel();
+        }
     }
 
 

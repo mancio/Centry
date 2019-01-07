@@ -37,11 +37,11 @@ public class Main {
     private static int max_bar = 500;
 
     // run inside intellij or build true to execute final compiled jar.
-    private static boolean build = true;
-    //private static boolean build = false;
-//
-    //private static boolean test = true;
-    private static boolean test = false;
+    //private static boolean build = true;
+    private static boolean build = false;
+
+    private static boolean test = true;
+    //private static boolean test = false;
 
 
     public static void main(String[] args) {
