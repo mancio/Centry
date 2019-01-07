@@ -242,6 +242,17 @@ class Gui {
 
     }
 
+
+    private void genbarvalue(){
+
+        JLabel n1=new JLabel("Joystick Axes position");
+        Dimension size = n1.getPreferredSize();
+        n1.setBounds(width/4 + insets.left, 5 + insets.top,
+                size.width, size.height);
+
+
+    }
+
     void nojoy(){
 
         jb1.setVisible(false);
