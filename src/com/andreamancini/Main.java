@@ -34,14 +34,14 @@ public class Main {
 
     // slide bar dimension
     private static int min_bar = 0;
-    private static int max_bar = 1000;
+    private static int max_bar = 500;
 
     // run inside intellij or build true to execute final compiled jar.
-    //private static boolean build = true;
-    private static boolean build = false;
-
-    private static boolean test = true;
-    //private static boolean test = false;
+    private static boolean build = true;
+    //private static boolean build = false;
+//
+    //private static boolean test = true;
+    private static boolean test = false;
 
 
     public static void main(String[] args) {
@@ -101,7 +101,7 @@ public class Main {
         Gui g = new Gui(appname, width, height);
 
         // generate icon, texts and slides
-        g.build(sj);
+        g.build(sj,test);
 
         while (true) {
 
@@ -151,9 +151,9 @@ public class Main {
 
 
             if(test) {
-                p.turn(devnum, "x", 0.1f);
-                p.turn(devnum, "y", 0.1f);
-                p.turn(devnum, "z", 0.1f);
+                p.turn(devnum, "x", 0.01f);
+                p.turn(devnum, "y", 0.01f);
+                p.turn(devnum, "z", 0.01f);
 
             }
 
