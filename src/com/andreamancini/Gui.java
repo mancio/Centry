@@ -41,6 +41,10 @@ class Gui {
     private JProgressBar jb2=new JProgressBar(0,100);
     private JProgressBar jb3=new JProgressBar(0,100);
 
+    private JLabel n1=new JLabel("0");
+
+
+
     private double per_min = 0.498;
     private double per_max = 0.502;
 
@@ -245,11 +249,20 @@ class Gui {
 
     private void genbarvalue(){
 
-        JLabel n1=new JLabel("Joystick Axes position");
+
         Dimension size = n1.getPreferredSize();
-        n1.setBounds(width/4 + insets.left, 5 + insets.top,
+        n1.setBounds(width/4 + insets.left, 5 + 55 + 20 + insets.top,
                 size.width, size.height);
 
+        f.add(n1);
+
+
+
+    }
+
+    void takepos(int[] n){
+
+        n1.setText(String.valueOf(n[0]));
 
     }
 
@@ -285,7 +298,7 @@ class Gui {
         JLabel t1=new JLabel("TEST MODE");
         t1.setForeground(Color.red);
         Dimension size = t1.getPreferredSize();
-        t1.setBounds(width/4 + insets.left, 5 + 20 + insets.top,
+        t1.setBounds(width/3 + insets.left, 5 + 20 + insets.top,
                 size.width, size.height);
 
         f.add(t1);
@@ -300,6 +313,7 @@ class Gui {
     void build(String[] dev, boolean test){
         makeMenu(dev);
         makeFrame(menuBar);
+        //genbarvalue();
         if(test) {
             testlabel();
         }

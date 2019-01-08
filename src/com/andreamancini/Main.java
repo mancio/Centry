@@ -124,6 +124,7 @@ public class Main {
 
                 // update slide bars
                 g.setbar(i, min_bar, max_bar);
+                g.takepos(i);
 
             }else{
 
