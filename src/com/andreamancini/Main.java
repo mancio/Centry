@@ -30,18 +30,18 @@ public class Main {
 
     // icon dimensions
     private static int height = 250;
-    private static int width = 300;
+    private static int width = 350;
 
     // slide bar dimension
     private static int min_bar = 0;
-    private static int max_bar = 500;
+    private static int max_bar = 100;
 
     // run inside intellij or build true to execute final compiled jar.
-    //private static boolean build = true;
-    private static boolean build = false;
+    private static boolean build = true;
+    //private static boolean build = false;
 
-    private static boolean test = true;
-    //private static boolean test = false;
+    //private static boolean test = true;
+    private static boolean test = false;
 
 //
     public static void main(String[] args) {
@@ -124,7 +124,7 @@ public class Main {
 
                 // update slide bars
                 g.setbar(i, min_bar, max_bar);
-                g.takepos(i);
+                g.takepos(i, max_bar);
 
             }else{
 

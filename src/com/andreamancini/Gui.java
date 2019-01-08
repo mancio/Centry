@@ -42,8 +42,8 @@ class Gui {
     private JProgressBar jb3=new JProgressBar(0,100);
 
     private JLabel n1=new JLabel("0");
-
-
+    private JLabel n2=new JLabel("0");
+    private JLabel n3=new JLabel("0");
 
     private double per_min = 0.498;
     private double per_max = 0.502;
@@ -251,19 +251,38 @@ class Gui {
 
 
         Dimension size = n1.getPreferredSize();
-        n1.setBounds(width/4 + insets.left, 5 + 55 + 20 + insets.top,
-                size.width, size.height);
+        n1.setBounds(width + insets.left - 80, 55 + insets.top,
+                size.width + 50, size.height);
+        n2.setBounds(width + insets.left - 80, 55 + 50 + insets.top,
+                size.width + 50, size.height);
+        n3.setBounds(width + insets.left - 80, 55 + 50*2 + insets.top,
+                size.width + 50, size.height);
 
         f.add(n1);
-
-
+        f.add(n2);
+        f.add(n3);
 
     }
 
-    void takepos(int[] n){
+    void takepos(int[] n, int max){
 
         n1.setText(String.valueOf(n[0]));
+        if(n[0] == max/2){
 
+            n1.setText("<-- " + n[0] + " -->");
+        }
+
+        n2.setText(String.valueOf(n[1]));
+        if(n[1] == max/2){
+
+            n2.setText("<-- " + n[1] + " -->");
+        }
+
+        n3.setText(String.valueOf(n[2]));
+        if(n[2] == max/2){
+
+            n3.setText("<-- " + n[2] + " -->");
+        }
     }
 
     void nojoy(){
@@ -313,7 +332,7 @@ class Gui {
     void build(String[] dev, boolean test){
         makeMenu(dev);
         makeFrame(menuBar);
-        //genbarvalue();
+        genbarvalue();
         if(test) {
             testlabel();
         }
