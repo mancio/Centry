@@ -34,7 +34,7 @@ public class Main {
 
     // slide bar dimension
     private static int min_bar = 0;
-    private static int max_bar = 100;
+    private static int max_bar = 1000;
 
     // run inside intellij or build true to execute final compiled jar.
     private static boolean build = true;
